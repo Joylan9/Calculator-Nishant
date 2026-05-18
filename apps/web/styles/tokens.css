@@ -1,0 +1,124 @@
+/* ─── Design Tokens ────────────────────────────────────────────────────────── */
+/* Cinematic Premium Calculator — Design System */
+
+:root {
+  /* ── Colors ── */
+  --color-bg-primary: #0A0A0F;
+  --color-bg-secondary: #0F0F17;
+  --color-bg-tertiary: #14141F;
+  --color-bg-elevated: #1A1A28;
+  --color-bg-glass: rgba(255, 255, 255, 0.05);
+  --color-bg-glass-hover: rgba(255, 255, 255, 0.08);
+
+  --color-gold: #C9A84C;
+  --color-gold-dim: rgba(201, 168, 76, 0.6);
+  --color-gold-glow: rgba(201, 168, 76, 0.1);
+  --color-gold-subtle: rgba(201, 168, 76, 0.08);
+
+  --color-teal: #2BFFD8;
+  --color-teal-dim: rgba(43, 255, 216, 0.6);
+  --color-teal-glow: rgba(43, 255, 216, 0.1);
+  --color-teal-subtle: rgba(43, 255, 216, 0.05);
+
+  --color-text-primary: #FAFAF9;
+  --color-text-secondary: #A8A8B3;
+  --color-text-muted: #5A5A6E;
+  --color-text-disabled: #3A3A4A;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-border-gold: rgba(201, 168, 76, 0.3);
+
+  --color-error: #FF4D4D;
+  --color-success: #2BFFD8;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'DM Mono', 'JetBrains Mono', monospace;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-hero: clamp(3rem, 8vw, 7rem);
+  --text-display: clamp(2rem, 4vw, 3.5rem);
+  --text-heading: clamp(1.5rem, 3vw, 2.25rem);
+  --text-subheading: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-calc-result: clamp(2.5rem, 6vw, 4rem);
+
+  /* ── Spacing (8px grid) ── */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* ── Borders & Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-glow-gold: 0 0 40px rgba(201, 168, 76, 0.1);
+  --shadow-glow-gold-lg: 0 0 80px rgba(201, 168, 76, 0.15);
+  --shadow-glow-teal: 0 0 40px rgba(43, 255, 216, 0.08);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+  /* ── Glassmorphism ── */
+  --glass-blur: blur(20px);
+  --glass-blur-xl: blur(40px);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* ── Motion Tokens ── */
+  --duration-instant: 50ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --duration-slower: 1000ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-Index Scale ── */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+}
+
+/* ── Theme: Obsidian (default dark) ── */
+[data-theme="obsidian"] {
+  --color-bg-primary: #0A0A0F;
+  --color-bg-secondary: #0F0F17;
+  --color-bg-tertiary: #14141F;
+}
+
+/* ── Theme: Midnight ── */
+[data-theme="midnight"] {
+  --color-bg-primary: #080B16;
+  --color-bg-secondary: #0D1225;
+  --color-bg-tertiary: #131A30;
+  --color-gold: #D4AF37;
+}
+
+/* ── Theme: Phantom ── */
+[data-theme="phantom"] {
+  --color-bg-primary: #0C0A10;
+  --color-bg-secondary: #120F18;
+  --color-bg-tertiary: #1A1622;
+  --color-gold: #E8C547;
+  --color-teal: #00FFD1;
+}
