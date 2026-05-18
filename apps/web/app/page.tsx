@@ -8,29 +8,7 @@ import { killAllScrollTriggers } from '@/lib/animations/gsap';
 
 export default function LandingPage() {
   useEffect(() => {
-    // Initialize Lenis smooth scroll for landing page
-    let lenis: any = null;
-
-    (async () => {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      try {
-        const Lenis = (await import('@studio-freight/lenis')).default;
-        lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
-
-        function raf(time: number) {
-          lenis?.raf(time);
-          requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-      } catch {
-        // Lenis not available
-      }
-    })();
-
     return () => {
-      lenis?.destroy();
       killAllScrollTriggers();
     };
   }, []);
@@ -39,7 +17,6 @@ export default function LandingPage() {
     <main style={{
       background: 'var(--color-bg-primary, #0A0A0F)',
       minHeight: '100vh',
-      overflow: 'hidden',
     }}>
       <Hero />
       <Features />

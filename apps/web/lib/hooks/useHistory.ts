@@ -14,8 +14,8 @@ export function useAuth() {
           if (res.success && res.data?.token) {
             localStorage.setItem('calc_token', res.data.token);
           }
-        } catch (error) {
-          console.error('Guest auth failed', error);
+        } catch {
+          // Backend unavailable — calculator works offline via Zustand
         }
       }
     };

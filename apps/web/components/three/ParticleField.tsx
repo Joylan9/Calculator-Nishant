@@ -9,7 +9,7 @@ function Particles() {
   const mouseRef = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
 
-  const count = 2000;
+  const count = 1200;
 
   const [positions, velocities] = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -42,7 +42,11 @@ function Particles() {
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
+  // Throttle to ~30fps for performance (skip every other frame)
+  const frameCount = useRef(0);
   useFrame(() => {
+    frameCount.current++;
+    if (frameCount.current % 2 !== 0) return; // render at ~30fps
     if (!ref.current) return;
     const geo = ref.current.geometry;
     const posArr = geo.attributes.position.array as Float32Array;
@@ -52,7 +56,6 @@ function Particles() {
       posArr[i * 3 + 1] += velocities[i * 3 + 1];
       posArr[i * 3 + 2] += velocities[i * 3 + 2];
 
-      // Wrap around boundaries
       if (Math.abs(posArr[i * 3]) > 10) velocities[i * 3] *= -1;
       if (Math.abs(posArr[i * 3 + 1]) > 10) velocities[i * 3 + 1] *= -1;
       if (Math.abs(posArr[i * 3 + 2]) > 7.5) velocities[i * 3 + 2] *= -1;
@@ -60,7 +63,6 @@ function Particles() {
 
     geo.attributes.position.needsUpdate = true;
 
-    // Mouse parallax
     ref.current.rotation.x = mouseRef.current.y * 0.05;
     ref.current.rotation.y = mouseRef.current.x * 0.05;
   });
@@ -90,7 +92,7 @@ export default function ParticleField() {
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         style={{ background: 'transparent' }}
-        dpr={[1, 1.5]}
+        dpr={[1, 2]}
         gl={{ antialias: false, alpha: true }}
       >
         <fog attach="fog" args={['#0A0A0F', 5, 20]} />
